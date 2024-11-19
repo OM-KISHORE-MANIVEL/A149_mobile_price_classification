@@ -6,8 +6,8 @@ dependent_var <- training[["mobile_wt"]]
 
 # Histogram with normal curve
 hist(dependent_var,
-     main = "Histogram of mobile_wt with Normal Curve",
-     xlab = "mobile_wt",
+     main = "Histogram of mobile weightt with Normal Curve",
+     xlab = "mobile weight",
      col = "lightblue",
      border = "black",
      prob = TRUE)
@@ -18,8 +18,8 @@ curve(dnorm(x, mean = mean_val, sd = sd_val),
       col = "red", lwd = 2, add = TRUE)
 
 plot(training[["mobile_wt"]], training[["battery_power"]],
-         xlab = "mobile_wt",
-         ylab = "battery_power",
+         xlab = "mobile weight (g)",
+         ylab = "battery power (mAh)",
          main = paste("Plot of battery_power against mobile_wt"), type = "p", pch = 19,
          cex = 1.5, col = "black")
     
