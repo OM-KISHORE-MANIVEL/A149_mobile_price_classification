@@ -1,17 +1,5 @@
 #load data
-training<-read.csv("Data_csv/train.csv", header = TRUE)
-
-# histogram for all columns
-for (col_name in names(training)) {
-  if (col_name != "mobile_wt") {
-    
-    hist(training[[col_name]],
-         main = paste("Histogram of", col_name),
-         xlab = col_name,
-         col = "lightblue",
-         border = "black")
-  }
-}
+training<-read.csv("test.csv", header = TRUE)
 
 # Dependent variable
 dependent_var <- training[["mobile_wt"]]
@@ -29,23 +17,16 @@ sd_val <- sd(dependent_var, na.rm = TRUE)
 curve(dnorm(x, mean = mean_val, sd = sd_val),
       col = "red", lwd = 2, add = TRUE)
 
-
-#plots
-for (col_name in names(training)) {
-  if (col_name != "mobile_wt") {
-    
-    plot(training[["mobile_wt"]], training[[col_name]],
+plot(training[["mobile_wt"]], training[["battery_power"]],
          xlab = "mobile_wt",
-         ylab = col_name,
-         main = paste("Plot of", col_name, "against mobile_wt"), type = "p", pch = 19,
+         ylab = "battery_power",
+         main = paste("Plot of battery_power against mobile_wt"), type = "p", pch = 19,
          cex = 1.5, col = "black")
     
 #linear trend line
-    model <- lm(training[[col_name]] ~ training[["mobile_wt"]])
-    abline(model, col = "blue", lwd = 2)
+model <- lm(training[["battery_power"]] ~ training[["mobile_wt"]])
+abline(model, col = "blue", lwd = 2)
     
-    grid()
-  }
-}
+grid()
 
 
