@@ -10,15 +10,13 @@ hist(dependent_var,
      xlab = "mobile weight (g)",
      col = "lightblue",
      border = "black",
-     prob = FALSE)
+     prob = TRUE)
 
 mean_val <- mean(dependent_var, na.rm = TRUE)
 
 sd_val <- sd(dependent_var, na.rm = TRUE)
 
-max_freq <- max(hist(dependent_var, plot = FALSE)$counts)  # Get max frequency from histogram
-
-curve(dnorm(x, mean = mean_val, sd = sd_val) * max_freq,  # Scale normal curve
+curve(dnorm(x, mean = mean_val, sd = sd_val),
       col = "red", lwd = 2, add = TRUE)
 
 #Correlation plot
@@ -34,5 +32,10 @@ abline(model, col = "blue", lwd = 2)
 
 #Adding grid   
 grid()
+
+#Correlation Coefficient
+cor(training[["mobile_wt"]], training[["battery_power"]], method = "pearson")
+
+
 
 

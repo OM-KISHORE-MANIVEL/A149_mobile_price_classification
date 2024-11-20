@@ -26,6 +26,11 @@ Visualization: Use scatter plots to observe trends between weight and battery ca
 
 Correlation Analysis: Calculate the Pearson correlation coefficient to quantify the relationship.
 
+Pearson’s correlation measures the linear relationship between two continuous variables. It ranges from -1 to 1:
+1: Perfect positive correlation.
+0: No linear relationship.
+-1: Perfect negative correlation
+
 Results Interpretation: Interpret findings and determine if the null hypothesis can be rejected.
 
 6. Instructions
