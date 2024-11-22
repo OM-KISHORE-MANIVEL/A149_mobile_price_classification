@@ -33,8 +33,11 @@ abline(model, col = "blue", lwd = 2)
 #Adding grid   
 grid()
 
-#Correlation Coefficient
-cor(training[["mobile_wt"]], training[["battery_power"]], method = "pearson")
+# Spearman's Rank Correlation
+spearman_corr <- cor(training[["mobile_wt"]], training[["battery_power"]], method = "spearman", use = "complete.obs")
+
+# Print the Spearman correlation result
+print(paste("Spearman's Rank Correlation:", spearman_corr))
 
 
 
