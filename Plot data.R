@@ -34,7 +34,7 @@ abline(model, col = "blue", lwd = 2)
 grid()
 
 #Correlation Coefficient
-cor(training[["mobile_wt"]], training[["battery_power"]], method = "pearson")
+cor(training[["mobile_wt"]], training[["battery_power"]], method = "spearman")
 
 
 
