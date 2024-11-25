@@ -17,7 +17,7 @@ mean_val <- mean(dependent_var, na.rm = TRUE)
 sd_val <- sd(dependent_var, na.rm = TRUE)
 
 curve(dnorm(x, mean = mean_val, sd = sd_val),
-      col = "red", lwd = 2, add = TRUE)
+      col = "red", lwd = 4, add = TRUE)
 
 #Correlation plot
 plot(training[["mobile_wt"]], training[["battery_power"]],
