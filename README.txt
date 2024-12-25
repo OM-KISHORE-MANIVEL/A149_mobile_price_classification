@@ -24,9 +24,9 @@ Data Cleaning: Handle missing or erroneous values.
 
 Visualization: Use scatter plots to observe trends between weight and battery capacity.
 
-Correlation Analysis: Calculate the Pearson correlation coefficient to quantify the relationship.
+Correlation Analysis: Calculate the Spearman correlation coefficient to quantify the relationship.
 
-Pearson’s correlation measures the linear relationship between two continuous variables. It ranges from -1 to 1:
+Spearman’s correlation measures the linear relationship between two continuous variables. It ranges from -1 to 1:
 1: Perfect positive correlation.
 0: No linear relationship.
 -1: Perfect negative correlation
@@ -50,7 +50,7 @@ Run the Script: Execute plot_data.r in RStudio.
 View Outputs:
 
 Scatter plot showing the relationship between mobile_wt and battery_power.
-Pearson correlation coefficient displayed in the console.
+Spearman correlation coefficient displayed in the console.
 
 7. Dependencies
 
