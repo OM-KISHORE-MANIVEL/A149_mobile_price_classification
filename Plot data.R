@@ -31,6 +31,7 @@ plot(training[["battery_power"]], training[["mobile_wt"]],
 model <- lm(training[["mobile_wt"]] ~ training[["battery_power"]])
 abline(model, col = "blue", lwd = 2)
 
+
 #Adding grid   
 grid()
 
