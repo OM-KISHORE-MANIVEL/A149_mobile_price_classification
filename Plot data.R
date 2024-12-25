@@ -10,7 +10,8 @@ hist(dependent_var,
      xlab = "mobile weight (g)",
      col = "lightblue",
      border = "black",
-     prob = TRUE)
+     prob = TRUE,
+     ylim = c(0, 0.015))
 
 mean_val <- mean(dependent_var, na.rm = TRUE)
 
@@ -20,24 +21,31 @@ curve(dnorm(x, mean = mean_val, sd = sd_val),
       col = "red", lwd = 2, add = TRUE)
 
 #Correlation plot
-plot(training[["mobile_wt"]], training[["battery_power"]],
-         xlab = "mobile weight (g)",
-         ylab = "battery power (mAh)",
-         main = paste("Plot of battery_power against mobile_wt"), type = "p", pch = 19,
+plot(training[["battery_power"]], training[["mobile_wt"]],
+         xlab = "battery power (mAh)",
+         ylab = "mobile weight (g)",
+         main = paste("Plot of mobile weight against battery power"), type = "p", pch = 19,
          cex = 1.5, col = "black")
     
 #linear trend line
-model <- lm(training[["battery_power"]] ~ training[["mobile_wt"]])
+model <- lm(training[["mobile_wt"]] ~ training[["battery_power"]])
 abline(model, col = "blue", lwd = 2)
 
 #Adding grid   
 grid()
 
-# Spearman's Rank Correlation
-spearman_corr <- cor(training[["mobile_wt"]], training[["battery_power"]], method = "spearman", use = "complete.obs")
+# Calculate Spearman's rank correlation and p-value
+spearman_test <- cor.test(training[["battery_power"]], training[["mobile_wt"]],
+                          method = "spearman", 
+                          exact = FALSE)
 
-# Print the Spearman correlation result
-print(paste("Spearman's Rank Correlation:", spearman_corr))
+# Extract and print the results
+spearman_corr <- spearman_test$estimate
+p_value <- spearman_test$p.value
+
+# Print results
+print(paste("Spearman's Rank Correlation:", round(spearman_corr, 3)))
+print(paste("P-value:", format.pval(p_value, digits = 3)))
 
 
 
